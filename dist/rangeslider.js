@@ -363,7 +363,10 @@
         this.$element.trigger('change', { origin: this.identifier });
 
         if (this.onSlideEnd && typeof this.onSlideEnd === 'function') {
-            this.onSlideEnd(this.position, this.value, e);
+			var pos = this.getRelativePosition(e);
+			this.onSlideEnd(this.position, this.value, pos);
+            
+            //this.onSlideEnd(this.position, this.value);
         }
     };
 
